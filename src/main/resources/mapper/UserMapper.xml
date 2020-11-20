@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:改mapper.xml映射文件的唯一标识并且必须和数据处理层的接口的路径相同-->
+<mapper namespace="com.jojo.mapper.UserMapper">
+    <!--   必须添加property属性 ，区别于是否加主键-->
+    <!--<resultMap id="user" class="com.jojo.util.User">
+        <id column="id" property="id" javaType="java.lang.Integer"/>
+        <result column="name" property="name" javaType="java.lang.String"/>
+        <result column="age" property="age" javaType="java.lang.Integer"/>
+        <result column="addr" property="addr" javaType="java.lang.String"/>
+    </resultMap>-->
+    <!--id的值必须和数据处理层的接口名一致-->
+    <!--此处的User-->
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="com.jojo.util.User">
+        <![CDATA[
+        select * from user where id = #{id}
+        ]]>
+    </select>
+
+</mapper>
